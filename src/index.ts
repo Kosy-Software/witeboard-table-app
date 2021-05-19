@@ -26,7 +26,7 @@ module Kosy.Integration.Witeboard {
             this.initializer = initialInfo.clients[initialInfo.initializerClientUuid];
             this.currentClient = initialInfo.clients[initialInfo.currentClientUuid];
             this.state = initialInfo.currentAppState ?? this.state;
-            this.state.tableName = 'table-apps'
+            this.state.tableName = this.currentClient.clientLocation.table.tableUuid;
             this.renderComponent();
 
             window.addEventListener("message", (event: MessageEvent<ComponentMessage>) => {
