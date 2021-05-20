@@ -48,9 +48,6 @@ module Kosy.Integration.Witeboard {
         }
 
         public onClientHasLeft(clientUuid: string) {
-            if (clientUuid === this.initializer.clientUuid && !this.state.tableName) {
-                this.kosyApi.stopApp();
-            }
         }
 
         public processMessage(message: AppMessage) {
