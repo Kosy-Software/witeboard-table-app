@@ -3,7 +3,6 @@ import './styles/style.scss';
 import { AppMessage, ComponentMessage } from './lib/appMessages';
 import { AppState } from './lib/appState';
 import { render } from './views/renderState';
-import { isValidFigmaUrl } from './lib/validation';
 import { ClientInfo } from '@kosy/kosy-app-api/types';
 import { KosyApi } from '@kosy/kosy-app-api';
 
