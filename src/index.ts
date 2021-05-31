@@ -13,8 +13,6 @@ module Kosy.Integration.Witeboard {
         private currentClient: ClientInfo;
 
         private kosyApi = new KosyApi<AppState, AppMessage, AppMessage>({
-            onClientHasJoined: (client) => this.onClientHasJoined(client),
-            onClientHasLeft: (clientUuid) => this.onClientHasLeft(clientUuid),
             onReceiveMessageAsClient: (message) => this.processMessage(message),
             onReceiveMessageAsHost: (message) => message,
             onRequestState: () => this.getState(),
@@ -41,13 +39,6 @@ module Kosy.Integration.Witeboard {
 
         public getState() {
             return this.state;
-        }
-
-        public onClientHasJoined(client: ClientInfo) {
-            //No need to process this message for this app
-        }
-
-        public onClientHasLeft(clientUuid: string) {
         }
 
         public processMessage(message: AppMessage) {
