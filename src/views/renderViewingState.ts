@@ -5,7 +5,7 @@ export function renderViewingState(state: ComponentState): HTMLElement {
     let iframe = viewingElement.querySelector("iframe") as HTMLIFrameElement;
     iframe.style.height = `calc(100vh - 36px)`;
     iframe.style.width = "100vw";
-    iframe.src = `https://witeboard.com/${state.tableName}`;
+    iframe.src = `https://witeboard.com/${state.whiteboardName}`;
 
     return viewingElement;
 }

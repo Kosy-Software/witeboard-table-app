@@ -8,7 +8,7 @@ import { KosyApi } from '@kosy/kosy-app-api';
 
 module Kosy.Integration.Witeboard {
     export class App {
-        private state: AppState = { tableName: null };
+        private state: AppState = { whiteboardName: null };
         private initializer: ClientInfo;
         private currentClient: ClientInfo;
 
@@ -24,7 +24,7 @@ module Kosy.Integration.Witeboard {
             this.initializer = initialInfo.clients[initialInfo.initializerClientUuid];
             this.currentClient = initialInfo.clients[initialInfo.currentClientUuid];
             this.state = initialInfo.currentAppState ?? this.state;
-            this.state.tableName = this.currentClient.clientLocation.table.tableUuid;
+            this.state.whiteboardName = initialInfo.locationUuid;
             this.renderComponent();
 
             window.addEventListener("message", (event: MessageEvent<ComponentMessage>) => {
@@ -58,7 +58,7 @@ module Kosy.Integration.Witeboard {
         //Poor man's react, so we don't need to fetch the entire react library for this tiny app...
         private renderComponent() {
             render({
-                tableName: this.state.tableName,
+                whiteboardName: this.state.whiteboardName,
                 currentClient: this.currentClient,
                 initializer: this.initializer,
             });
